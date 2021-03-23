@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageSwitcher from './ImageSwitcher'
 import ImageIndices from './ImageIndices'
+import { createUseStyles } from 'react-jss'
 
 const Carousel = ({
   currImage,
@@ -10,12 +11,21 @@ const Carousel = ({
   jumptToImage,
   index
 }) => {
-  const style = {
-    backgroundImage: `url("${currImage}")`
-  }
+  const useStyles = createUseStyles({
+    content: {
+      width: '100%',
+      height: '100%',
+      backgroundImage: `url("${currImage}")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      display: 'flex',
+      flexFlow: 'column'
+    }
+  })
+  const classes = useStyles()
 
   return (
-    <div className="content" style={style}>
+    <div className={classes.content}>
       <ImageSwitcher
         onCLickLeftHandler={onCLickLeftHandler}
         onClickRightHandler={onClickRightHandler}

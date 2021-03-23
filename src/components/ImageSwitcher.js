@@ -1,18 +1,47 @@
 import React from 'react'
 import leftArrow from '../left-arrow.png'
 import rightArrow from '../next.png'
+import { createUseStyles } from 'react-jss'
 
 const ImageSwitcher = ({
   onCLickLeftHandler, onClickRightHandler
-}) => (
-    <div className="imageSwitcher">
+}) => {
+  const useStyles = createUseStyles({
+    imageSwitcher: {
+      flex: '8',
+      display: 'flex',
+      flexFlow: 'row',
+      justifyContent: 'space-between',
+      '& button': {
+        backgroundColor: 'transparent',
+        border: '0px',
+        width: '20%',
+        '& img': {
+          transition: 'all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045)'
+        }
+      },
+      '& button:hover': {
+        cursor: 'pointer',
+        '& img': {
+          width: '30%'
+        }
+      },
+      img: {
+        width: '20%'
+      }
+    }
+  })
+  const classes = useStyles()
+  return (
+    <div className={classes.imageSwitcher}>
         <button className="left" onClick={onCLickLeftHandler}>
           <img src={leftArrow} />
         </button>
         <button className="right" onClick={onClickRightHandler}>
           <img src={rightArrow} />
         </button>
-      </div>
-)
+    </div>
+  )
+}
 
 export default ImageSwitcher

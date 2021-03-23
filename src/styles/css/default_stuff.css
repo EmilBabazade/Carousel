@@ -1,3 +1,6 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
 /* make everything border-box */
 html {
   box-sizing: border-box;
@@ -7,10 +10,10 @@ html {
   box-sizing: inherit;
 }
 
+/* everything 100%, this helps to make sense of overflow and positions and etc */
+
 html, body, #root {
   height: 100%;
   width: 100%;
   margin: 0;
 }
-
-/*# sourceMappingURL=default_stuff.css.map */
