@@ -35,7 +35,8 @@ const App = () => {
                 image={currImage}
                 onCLickLeftHandler={onClickLeft}
                 onClickRightHandler={onClickRight}
-                jumptToImage={jumptToImage} />
+                jumptToImage={jumptToImage}
+                currIndex={currIndex} />
         </>
   )
 }

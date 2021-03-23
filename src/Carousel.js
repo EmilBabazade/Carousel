@@ -7,11 +7,32 @@ const Carousel = ({
   image,
   onCLickLeftHandler,
   onClickRightHandler,
-  jumptToImage
+  jumptToImage,
+  currIndex
 }) => {
   const style = {
     backgroundImage: `url("${image}")`
   }
+
+  const colorChange = {
+    color: '#F2F5FA'
+  }
+
+  const indices = images.map((_, idx) => {
+    if (idx === currIndex) {
+      return (
+          <li style={colorChange} key={idx} onClick={evt => jumptToImage(idx)}>
+            {idx}
+          </li>
+      )
+    } else {
+      return (
+            <li key={idx} onClick={evt => jumptToImage(idx)}>
+            {idx}
+          </li>
+      )
+    }
+  })
 
   return (
     <div className="content" style={style}>
@@ -24,11 +45,7 @@ const Carousel = ({
         </button>
       </div>
       <ul>
-        {images.map((i, k) =>
-          <li key={k} onClick={evt => jumptToImage(k)}>
-            {k}
-          </li>
-        )}
+        {indices}
       </ul>
     </div>
   )

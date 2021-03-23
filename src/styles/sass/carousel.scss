@@ -41,14 +41,14 @@ div.content {
             color: colors.$gray;
             list-style: none;
             position: relative;
-            transition: all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            transition: all 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
             font-size: 30px;
             bottom: 0px;
         }
         li:hover {
             cursor: pointer;
             bottom: 20%;
-            color: colors.$white;
+            color: colors.$purple;
         }
     }
 }
