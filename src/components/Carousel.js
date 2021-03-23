@@ -30,10 +30,10 @@ const Carousel = ({
         onCLickLeftHandler={onCLickLeftHandler}
         onClickRightHandler={onClickRightHandler}
       />
-      {/* <ImageIndices
+      <ImageIndices
         index={index}
         jumptToImage={jumptToImage}
-      /> */}
+      />
     </div>
   )
 }
