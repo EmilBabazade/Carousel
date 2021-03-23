@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Carousel from './Carousel'
+import images from './utils/images'
 
-const App = () => (
-    <div>
-        <Carousel src="https://im-media.voltron.voanews.com/Drupal/01live-166/styles/google_amp_1280x720/s3/2020-09/ap_british%20tank.jpg?itok=GcA6XpP6" />
-    </div>
-)
+const App = () => {
+  const [currImage, setCurrImage] = useState(images[0])
+  const [currIndex, setCurrIndex] = useState(0)
+
+  const onClickLeft = (evt) => {
+    evt.preventDefault()
+    const newIndex = currIndex !== 0
+      ? currIndex - 1
+      : images.length - 1
+    setCurrIndex(newIndex)
+    setCurrImage(images[newIndex])
+  }
+
+  const onClickRight = (evt) => {
+    evt.preventDefault()
+    const newIndex = currIndex !== (images.length - 1)
+      ? currIndex + 1
+      : 0
+    setCurrIndex(newIndex)
+    setCurrImage(images[newIndex])
+  }
+
+  return (
+        <div>
+            <Carousel
+                image={currImage}
+                onCLickLeftHandler={onClickLeft}
+                onClickRightHandler={onClickRight} />
+        </div>
+  )
+}
 
 export default App

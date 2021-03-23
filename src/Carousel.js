@@ -2,17 +2,17 @@ import React from 'react'
 import leftArrow from './left-arrow.png'
 import rightArrow from './next.png'
 
-const Carousel = ({ src }) => {
+const Carousel = ({ image, onCLickLeftHandler, onClickRightHandler }) => {
   const style = {
-    backgroundImage: `url("${src}")`
+    backgroundImage: `url("${image}")`
   }
 
   return (
     <div style={style}>
-        <button>
+        <button onClick={onCLickLeftHandler}>
           <img src={leftArrow} />
         </button>
-        <button>
+        <button onClick={onClickRightHandler}>
           <img src={rightArrow} />
         </button>
     </div>
