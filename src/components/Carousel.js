@@ -1,7 +1,6 @@
 import React from 'react'
-import leftArrow from './left-arrow.png'
-import rightArrow from './next.png'
-import images from './utils/images'
+import images from '../utils/images'
+import ImageSwitcher from './ImageSwitcher'
 
 const Carousel = ({
   currImage,
@@ -37,14 +36,10 @@ const Carousel = ({
 
   return (
     <div className="content" style={style}>
-      <div className="buttons">
-        <button className="left" onClick={onCLickLeftHandler}>
-          <img src={leftArrow} />
-        </button>
-        <button className="right" onClick={onClickRightHandler}>
-          <img src={rightArrow} />
-        </button>
-      </div>
+      <ImageSwitcher
+        onCLickLeftHandler={onCLickLeftHandler}
+        onClickRightHandler={onClickRightHandler}
+      />
       <ul>
         {indices}
       </ul>

@@ -7,27 +7,27 @@ div.content {
   display: flex;
   flex-flow: column;
 }
-div.content div.buttons {
+div.content div.imageSwitcher {
   flex: 8;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
-div.content div.buttons button {
+div.content div.imageSwitcher button {
   background-color: transparent;
   border: 0px;
   width: 20%;
 }
-div.content div.buttons button img {
+div.content div.imageSwitcher button img {
   transition: all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
-div.content div.buttons button:hover {
+div.content div.imageSwitcher button:hover {
   cursor: pointer;
 }
-div.content div.buttons button:hover img {
+div.content div.imageSwitcher button:hover img {
   width: 30%;
 }
-div.content div.buttons img {
+div.content div.imageSwitcher img {
   width: 20%;
 }
 div.content ul {

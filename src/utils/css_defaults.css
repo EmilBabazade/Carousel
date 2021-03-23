@@ -1,0 +1,14 @@
+/* make everything border-box */
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }

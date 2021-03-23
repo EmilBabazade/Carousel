@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Carousel from './Carousel'
+import Carousel from './components/Carousel'
 import images from './utils/images'
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     setOldImage(images[index])
 
     let newIndex = 0
-    if (index + offset === 0) {
+    if (index + offset === -1) {
       newIndex = images.length - 1
     } else if (index + offset === images.length) {
       newIndex = 0
@@ -35,7 +35,9 @@ const App = () => {
 
   const onClickRight = (evt) => {
     evt.preventDefault()
+    console.log('hello')
     changeIndex(1)
+    console.log('hello')
   }
 
   const jumptToImage = (newIndex) => {
