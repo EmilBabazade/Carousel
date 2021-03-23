@@ -16,16 +16,18 @@ const Carousel = ({
   return (
     <div className="content" style={style}>
       <div className="buttons">
-        <button onClick={onCLickLeftHandler}>
+        <button className="left" onClick={onCLickLeftHandler}>
           <img src={leftArrow} />
         </button>
-        <button onClick={onClickRightHandler}>
+        <button className="right" onClick={onClickRightHandler}>
           <img src={rightArrow} />
         </button>
       </div>
       <ul>
         {images.map((i, k) =>
-          <li key={k} onClick={evt => jumptToImage(k)}></li>
+          <li key={k} onClick={evt => jumptToImage(k)}>
+            {k}
+          </li>
         )}
       </ul>
     </div>
