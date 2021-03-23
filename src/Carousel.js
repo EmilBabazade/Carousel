@@ -4,14 +4,15 @@ import rightArrow from './next.png'
 import images from './utils/images'
 
 const Carousel = ({
-  image,
+  currImage,
+  oldImage,
   onCLickLeftHandler,
   onClickRightHandler,
   jumptToImage,
-  currIndex
+  index
 }) => {
   const style = {
-    backgroundImage: `url("${image}")`
+    backgroundImage: `url("${currImage}")`
   }
 
   const colorChange = {
@@ -19,7 +20,7 @@ const Carousel = ({
   }
 
   const indices = images.map((_, idx) => {
-    if (idx === currIndex) {
+    if (idx === index) {
       return (
           <li style={colorChange} key={idx} onClick={evt => jumptToImage(idx)}>
             {idx}
