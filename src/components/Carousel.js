@@ -15,14 +15,14 @@ const Carousel = ({
     content: {
       width: '100%',
       height: '100%',
-      backgroundImage: `url("${currImage}")`,
+      backgroundImage: img => `url("${img}")`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       display: 'flex',
       flexFlow: 'column'
     }
   })
-  const classes = useStyles()
+  const classes = useStyles(currImage)
 
   return (
     <div className={classes.content}>
@@ -30,10 +30,10 @@ const Carousel = ({
         onCLickLeftHandler={onCLickLeftHandler}
         onClickRightHandler={onClickRightHandler}
       />
-      <ImageIndices
+      {/* <ImageIndices
         index={index}
         jumptToImage={jumptToImage}
-      />
+      /> */}
     </div>
   )
 }
