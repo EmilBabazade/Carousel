@@ -24,5 +24,8 @@ div.content {
         display: flex;
         flex-flow: row;
         justify-content: space-evenly;
+        li:hover {
+            cursor: pointer;
+        }
     }
 }

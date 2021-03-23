@@ -26,5 +26,8 @@ div.content ul {
   flex-flow: row;
   justify-content: space-evenly;
 }
+div.content ul li:hover {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=carousel.css.map */
