@@ -1,5 +1,6 @@
 import React from 'react'
-import './left-arrow.png'
+import leftArrow from './left-arrow.png'
+import rightArrow from './next.png'
 
 const Carousel = ({ src }) => {
   const style = {
@@ -8,8 +9,12 @@ const Carousel = ({ src }) => {
 
   return (
     <div style={style}>
-        <button>Previous</button>
-        <button>Next</button>
+        <button>
+          <img src={leftArrow} />
+        </button>
+        <button>
+          <img src={rightArrow} />
+        </button>
     </div>
   )
 }
