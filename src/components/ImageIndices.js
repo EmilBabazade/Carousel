@@ -1,15 +1,41 @@
 import React from 'react'
 import images from '../utils/images'
+import createUseStyles from 'react-jss'
+import colors from '../utils/colors'
 
 const ImageIndices = ({ jumptToImage, index }) => {
-  const colorChange = {
-    color: '#F2F5FA'
-  }
+  const useStyles = createUseStyles({
+    imageIndices: {
+      flex: '1',
+      display: 'flex',
+      flexFlow: 'row',
+      justifyContent: 'space-evenly',
+      '& li': {
+        fontFamily: 'Syne Mono',
+        color: colors.gray,
+        listStyle: 'none',
+        position: 'relative',
+        transition: 'all 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+        fontSize: '30px',
+        bottom: '0px'
+      },
+      '$li:hover': {
+        cursor: 'pointer',
+        bottom: '20%',
+        color: colors.purple
+      }
+    },
+    white: {
+      color: colors.white
+    }
+  })
+
+  const classes = useStyles()
 
   const indices = images.map((_, idx) => {
     if (idx === index) {
       return (
-              <li style={colorChange} key={idx} onClick={evt => jumptToImage(idx)}>
+              <li className={classes.white} key={idx} onClick={evt => jumptToImage(idx)}>
                 {idx}
               </li>
       )
@@ -23,7 +49,7 @@ const ImageIndices = ({ jumptToImage, index }) => {
   })
 
   return (
-      <ul>
+      <ul className={classes.imageIndices}>
           {indices}
       </ul>
   )

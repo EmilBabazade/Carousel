@@ -12,6 +12,9 @@ const ImageSwitcher = ({
       display: 'flex',
       flexFlow: 'row',
       justifyContent: 'space-between',
+      '& img': {
+        width: '20%'
+      },
       '& button': {
         backgroundColor: 'transparent',
         border: '0px',
@@ -25,13 +28,11 @@ const ImageSwitcher = ({
         '& img': {
           width: '30%'
         }
-      },
-      img: {
-        width: '20%'
       }
     }
   })
   const classes = useStyles()
+
   return (
     <div className={classes.imageSwitcher}>
         <button className="left" onClick={onCLickLeftHandler}>
