@@ -35,9 +35,7 @@ const App = () => {
 
   const onClickRight = (evt) => {
     evt.preventDefault()
-    console.log('hello')
     changeIndex(1)
-    console.log('hello')
   }
 
   const jumptToImage = (newIndex) => {
