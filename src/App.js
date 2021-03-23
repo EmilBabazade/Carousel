@@ -24,13 +24,19 @@ const App = () => {
     setCurrImage(images[newIndex])
   }
 
+  const jumptToImage = (newIndex) => {
+    setCurrIndex(newIndex)
+    setCurrImage(images[newIndex])
+  }
+
   return (
-        <div>
+        <>
             <Carousel
                 image={currImage}
                 onCLickLeftHandler={onClickLeft}
-                onClickRightHandler={onClickRight} />
-        </div>
+                onClickRightHandler={onClickRight}
+                jumptToImage={jumptToImage} />
+        </>
   )
 }
 

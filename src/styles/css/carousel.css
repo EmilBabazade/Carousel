@@ -1,19 +1,30 @@
-div {
+div.content {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  flex-flow: column;
+}
+div.content div.buttons {
+  flex: 8;
+  display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
-div button {
+div.content div.buttons button {
   background-color: transparent;
   border: 0px;
   width: 20%;
 }
-div img {
+div.content div.buttons img {
   width: 20%;
+}
+div.content ul {
+  flex: 1;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
 }
 
 /*# sourceMappingURL=carousel.css.map */

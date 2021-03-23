@@ -1,20 +1,33 @@
 import React from 'react'
 import leftArrow from './left-arrow.png'
 import rightArrow from './next.png'
+import images from './utils/images'
 
-const Carousel = ({ image, onCLickLeftHandler, onClickRightHandler }) => {
+const Carousel = ({
+  image,
+  onCLickLeftHandler,
+  onClickRightHandler,
+  jumptToImage
+}) => {
   const style = {
     backgroundImage: `url("${image}")`
   }
 
   return (
-    <div style={style}>
+    <div className="content" style={style}>
+      <div className="buttons">
         <button onClick={onCLickLeftHandler}>
           <img src={leftArrow} />
         </button>
         <button onClick={onClickRightHandler}>
           <img src={rightArrow} />
         </button>
+      </div>
+      <ul>
+        {images.map((i, k) =>
+          <li key={k} onClick={evt => jumptToImage(k)}></li>
+        )}
+      </ul>
     </div>
   )
 }
