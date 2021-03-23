@@ -3,6 +3,13 @@ div {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+div button {
+  background-color: transparent;
+  border: 0px;
 }
 
 /*# sourceMappingURL=carousel.css.map */

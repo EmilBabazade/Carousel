@@ -1,4 +1,5 @@
 import React from 'react'
+import './left-arrow.png'
 
 const Carousel = ({ src }) => {
   const style = {
