@@ -14,10 +14,25 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexFlow: 'column'
   },
+  wrapper: {
+    position: 'relative',
+    width: '100%',
+    height: '100%'
+  },
+  slider: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    overflow: 'hidden'
+  },
   slide: {
     position: 'absolute',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    transition: '1s',
+    '&:hover': {
+      left: '100px'
+    }
   }
 })
 
@@ -30,11 +45,14 @@ const Carousel = ({
   index,
   imgCount
 }) => {
-  const classes = useStyles()
+  const classes = useStyles(imgCount)
 
   return (
-    <div>
-      <img src={currImage} className={classes.slide} />
+    <div className={classes.wrapper}>
+      <div className={classes.slider}>
+        <img src={oldImage} className={classes.slide} />
+        <img src={currImage} className={classes.slide} />
+      </div>
       <div className={classes.content}>
         <ImageSwitcher
           onCLickLeftHandler={onCLickLeftHandler}
