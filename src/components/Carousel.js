@@ -4,14 +4,6 @@ import ImageIndices from './ImageIndices'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
-  '@keyframes slideBackground': {
-    // from: {
-    //   background: imgs => `url("${imgs.old}")`
-    // },
-    // to: {
-    //   background: imgs => `url("${imgs.new}")`
-    // }
-  },
   container: {
     position: 'relative'
   },
@@ -19,11 +11,6 @@ const useStyles = createUseStyles({
     position: 'fixed',
     width: '100%',
     height: '100%',
-    // backgroundImage: imgs => `url("${imgs.new}")`,
-    animationName: '$slideBackground',
-    animationDuration: '4s',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
     display: 'flex',
     flexFlow: 'column'
   },
@@ -40,10 +27,10 @@ const Carousel = ({
   onCLickLeftHandler,
   onClickRightHandler,
   jumptToImage,
-  index
+  index,
+  imgCount
 }) => {
-  // const classes = useStyles(currImage)
-  const classes = useStyles({ old: oldImage, new: currImage })
+  const classes = useStyles()
 
   return (
     <div>
@@ -56,6 +43,7 @@ const Carousel = ({
         <ImageIndices
           index={index}
           jumptToImage={jumptToImage}
+          imgCount={imgCount}
         />
       </div>
     </div>

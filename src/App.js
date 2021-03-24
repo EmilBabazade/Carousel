@@ -52,7 +52,8 @@ const App = () => {
                 onCLickLeftHandler={onClickLeft}
                 onClickRightHandler={onClickRight}
                 jumptToImage={jumptToImage}
-                index={index} />
+                index={index}
+                imgCount={images.length}/>
         </>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import images from '../utils/images'
 import { createUseStyles } from 'react-jss'
 import colors from '../utils/colors'
 
@@ -26,28 +25,30 @@ const useStyles = createUseStyles({
   }
 })
 
-const ImageIndices = ({ jumptToImage, index }) => {
+const ImageIndices = ({ jumptToImage, index, imgCount }) => {
   const classes = useStyles()
 
   const white = {
     color: colors.white
   }
 
-  const indices = images.map((_, idx) => {
+  const indices = []
+
+  for (let idx = 0; idx < imgCount; idx++) {
     if (idx === index) {
-      return (
+      indices.push(
               <li style={white} key={idx} onClick={evt => jumptToImage(idx)}>
                 {idx}
               </li>
       )
     } else {
-      return (
+      indices.push(
                 <li key={idx} onClick={evt => jumptToImage(idx)}>
                 {idx}
               </li>
       )
     }
-  })
+  }
 
   return (
       <ul className={classes.indices}>
