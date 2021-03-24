@@ -4,7 +4,6 @@ import images from './utils/images'
 
 const App = () => {
   const [currImage, setCurrImage] = useState(images[0])
-  const [oldImage, setOldImage] = useState(images[0])
   const [index, setIndex] = useState(0)
 
   const changeIndex = (offset) => {
@@ -12,8 +11,6 @@ const App = () => {
       console.log(`invalid offsett value of ${offset} for index`)
       return
     }
-
-    setOldImage(images[index])
 
     let newIndex = 0
     if (index + offset === -1) {
@@ -39,7 +36,6 @@ const App = () => {
   }
 
   const jumptToImage = (newIndex) => {
-    setOldImage(images[index])
     setIndex(newIndex)
     setCurrImage(images[newIndex])
   }
@@ -48,11 +44,11 @@ const App = () => {
         <>
             <Carousel
                 currImage={currImage}
-                oldImage={oldImage}
                 onCLickLeftHandler={onClickLeft}
                 onClickRightHandler={onClickRight}
                 jumptToImage={jumptToImage}
-                index={index} />
+                index={index}
+                imgCount={images.length} />
         </>
   )
 }
