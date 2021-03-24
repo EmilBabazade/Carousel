@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImageSwitcher from './ImageSwitcher'
-import ImageIndices from './ImageIndices'
+// import ImageIndices from './ImageIndices'
 import { createUseStyles } from 'react-jss'
+
+const slideWidth = 100
 
 const useStyles = createUseStyles({
   content: {
@@ -20,41 +22,50 @@ const useStyles = createUseStyles({
   slider: {
     position: 'absolute',
     height: '100%',
-    width: imgCount => `${imgCount * 100}vw`
+    width: imgCount => `${imgCount * slideWidth}vw`
   },
   slide: {
     position: 'absolute',
-    width: '100vw',
-    height: '100%',
-    transition: 'all 0.25s'
+    width: `${slideWidth}vw`,
+    height: '100%'
   }
 })
 
 const Carousel = ({
   images
 }) => {
+  const [currIdx, setCurrIdx] = useState(0)
+
   // const classes = useStyles(currImage)
   const classes = useStyles(images.length)
 
-  let style = {}
-
   const onClickLeft = (evt) => {
     evt.preventDefault()
+  }
+
+  let style = {}
+  const onClickRight = (evt) => {
+    evt.preventDefault()
+    console.log('hello')
     style = {
-      left: '400px'
+      // transitionDuration: '0.5s',
+      // transform: `translate(-${slideWidth}px)`
+      color: 'red'
     }
+    setCurrIdx(currIdx + 1)
   }
 
   const slides = images.map((i, k) => <img style={style} className={classes.slide} src={i} key={k}/>)
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.slider}>
+      <div className={classes.slider} style={style}>
         {slides}
       </div>
       <div className={classes.content}>
         <ImageSwitcher
           onCLickLeftHandler={onClickLeft}
+          onClickRightHandler={onClickRight}
         />
       </div>
     </div>
