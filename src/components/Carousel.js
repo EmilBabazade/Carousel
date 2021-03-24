@@ -5,53 +5,58 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   content: {
+    position: 'fixed',
     width: '100%',
     height: '100%',
     display: 'flex',
     flexFlow: 'column'
   },
   wrapper: {
+    position: 'relative',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    overflow: 'hidden'
+  },
+  slider: {
+    position: 'absolute',
+    height: '100%',
+    width: imgCount => `${imgCount * 100}vw`
   },
   slide: {
     position: 'absolute',
-    width: '100%',
+    width: '100vw',
     height: '100%',
-    backgroundImage: imgs => 'linear-gradient(to left, red 50%, black 50%)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '200% 100%',
-    transition: 'background-position 1s',
-    '&:hover': {
-      backgroundPosition: '100% 0'
-    }
+    transition: 'all 0.25s'
   }
 })
 
 const Carousel = ({
-  currImage,
-  oldImage,
-  onCLickLeftHandler,
-  onClickRightHandler,
-  jumptToImage,
-  index
+  images
 }) => {
   // const classes = useStyles(currImage)
-  const classes = useStyles({ old: oldImage, new: currImage })
+  const classes = useStyles(images.length)
+
+  let style = {}
+
+  const onClickLeft = (evt) => {
+    evt.preventDefault()
+    style = {
+      left: '400px'
+    }
+  }
+
+  const slides = images.map((i, k) => <img style={style} className={classes.slide} src={i} key={k}/>)
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.slide} />
+      <div className={classes.slider}>
+        {slides}
+      </div>
       <div className={classes.content}>
-      <ImageSwitcher
-        onCLickLeftHandler={onCLickLeftHandler}
-        onClickRightHandler={onClickRightHandler}
-      />
-      <ImageIndices
-        index={index}
-        jumptToImage={jumptToImage}
-      />
-    </div>
+        <ImageSwitcher
+          onCLickLeftHandler={onClickLeft}
+        />
+      </div>
     </div>
   )
 }
