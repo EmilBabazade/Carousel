@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ImageSwitcher from './ImageSwitcher'
-// import ImageIndices from './ImageIndices'
+import ImageIndices from './ImageIndices'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
 
@@ -53,6 +53,15 @@ const Carousel = ({
     }
   }
 
+  const jumptToImage = (index) => {
+    if (index < 0 || index > images.length) {
+      // most likely will never happen, but you just in case
+      console.log(`invalid index to jump ${index}`)
+      return
+    }
+    setCurrIdx(index)
+  }
+
   const slides = images.map((i, k) => <Slide src={i} key={k}/>)
 
   return (
@@ -64,6 +73,10 @@ const Carousel = ({
         <ImageSwitcher
           onCLickLeftHandler={onClickLeft}
           onClickRightHandler={onClickRight}
+        />
+        <ImageIndices
+          index={currIdx}
+          jumptToImage={jumptToImage}
         />
       </div>
     </div>
