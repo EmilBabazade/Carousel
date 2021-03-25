@@ -3,13 +3,13 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   slide: {
-    display: 'inline',
+    position: 'inline',
     width: '100vw',
     height: '100%'
   }
 })
 
-const Slide = ({ src, slideCount }) => {
+const Slide = ({ src }) => {
   const classes = useStyles()
 
   return (

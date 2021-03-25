@@ -21,11 +21,6 @@ const useStyles = createUseStyles({
   slider: {
     position: 'absolute',
     height: '100%',
-    width: props => `${props.imgCount * props.slideWidth}vw`
-  },
-  sliderToLeft: {
-    position: 'absolute',
-    height: '100%',
     width: props => `${props.imgCount * props.slideWidth}vw`,
     transitionDuration: '0.5s',
     transform: props => `translate(-${props.index * props.slideWidth}vw)`
@@ -36,13 +31,9 @@ const Carousel = ({
   images
 }) => {
   const [currIdx, setCurrIdx] = useState(0)
-  const [toLeft, setToLeft] = useState(false)
-
   const styleClasses = useStyles({
     imgCount: images.length, slideWidth: 100, index: currIdx
   })
-
-  const sliderStyleClass = toLeft === true ? styleClasses.sliderToLeft : styleClasses.slider
 
   const onClickLeft = (evt) => {
     evt.preventDefault()
@@ -51,19 +42,22 @@ const Carousel = ({
     } else {
       setCurrIdx(currIdx - 1)
     }
-    setToLeft(true)
-    console.log('click left')
   }
 
   const onClickRight = (evt) => {
     evt.preventDefault()
+    if (currIdx === images.length - 1) {
+      setCurrIdx(0)
+    } else {
+      setCurrIdx(currIdx + 1)
+    }
   }
 
-  const slides = images.map((i, k) => <Slide slideCount={images.length} src={i} key={k}/>)
+  const slides = images.map((i, k) => <Slide src={i} key={k}/>)
 
   return (
     <div className={styleClasses.wrapper}>
-      <div className={sliderStyleClass}>
+      <div className={styleClasses.slider}>
         {slides}
       </div>
       <div className={styleClasses.content}>
