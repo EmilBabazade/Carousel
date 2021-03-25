@@ -27,18 +27,6 @@ const useStyles = createUseStyles({
   }
 })
 
-const useStyles = createUseStyles({
-  content: {
-    width: '100%',
-    height: '100%',
-    backgroundImage: img => `url("${img}")`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    display: 'flex',
-    flexFlow: 'column'
-  }
-})
-
 const Carousel = ({
   images
 }) => {

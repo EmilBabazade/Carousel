@@ -40,13 +40,13 @@ const ImageIndices = ({ jumptToImage, index }) => {
               </li>
       )
     } else {
-      indices.push(
+      return (
                 <li key={idx} onClick={evt => jumptToImage(idx)}>
                 {idx}
               </li>
       )
     }
-  }
+  })
 
   return (
       <ul className={classes.indices}>
