@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Carousel from './components/Carousel'
+// import Carousel from './components/trashCarousel'
 import images from './utils/images'
 
 const App = () => {
+<<<<<<< HEAD
   const [currImage, setCurrImage] = useState(images[0])
   const [index, setIndex] = useState(0)
 
@@ -49,6 +51,16 @@ const App = () => {
                 jumptToImage={jumptToImage}
                 index={index}
                 imgCount={images.length} />
+=======
+  // eslint-disable-next-line no-unused-vars
+  // const [carouselImages, _setCarouselImages] = useState(images)
+
+  return (
+        <>
+            {/* <Carousel
+              images={carouselImages} /> */}
+              <Carousel images={images} />
+>>>>>>> carousel_many_images
         </>
   )
 }
