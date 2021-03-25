@@ -1,6 +1,6 @@
 import React from 'react'
-// import Carousel from './components/Carousel'
-import Carousel from './components/trashCarousel'
+import Carousel from './components/Carousel'
+// import Carousel from './components/trashCarousel'
 import images from './utils/images'
 
 const App = () => {

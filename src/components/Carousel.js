@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import ImageSwitcher from './ImageSwitcher'
 // import ImageIndices from './ImageIndices'
 import { createUseStyles } from 'react-jss'
-
-const slideWidth = 100
+import Slide from './Slide'
 
 const useStyles = createUseStyles({
   content: {
-    position: 'fixed',
+    position: 'absolute',
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -22,12 +21,14 @@ const useStyles = createUseStyles({
   slider: {
     position: 'absolute',
     height: '100%',
-    width: imgCount => `${imgCount * slideWidth}vw`
+    width: props => `${props.imgCount * props.slideWidth}vw`
   },
-  slide: {
+  sliderToLeft: {
     position: 'absolute',
-    width: `${slideWidth}vw`,
-    height: '100%'
+    height: '100%',
+    width: props => `${props.imgCount * props.slideWidth}vw`,
+    transitionDuration: '0.5s',
+    transform: props => `translate(-${props.index * props.slideWidth}vw)`
   }
 })
 
@@ -35,34 +36,37 @@ const Carousel = ({
   images
 }) => {
   const [currIdx, setCurrIdx] = useState(0)
+  const [toLeft, setToLeft] = useState(false)
 
-  // const classes = useStyles(currImage)
-  const classes = useStyles(images.length)
+  const styleClasses = useStyles({
+    imgCount: images.length, slideWidth: 100, index: currIdx
+  })
+
+  const sliderStyleClass = toLeft === true ? styleClasses.sliderToLeft : styleClasses.slider
 
   const onClickLeft = (evt) => {
     evt.preventDefault()
+    if (currIdx === 0) {
+      setCurrIdx(images.length - 1)
+    } else {
+      setCurrIdx(currIdx - 1)
+    }
+    setToLeft(true)
+    console.log('click left')
   }
 
-  let style = {}
   const onClickRight = (evt) => {
     evt.preventDefault()
-    console.log('hello')
-    style = {
-      // transitionDuration: '0.5s',
-      // transform: `translate(-${slideWidth}px)`
-      color: 'red'
-    }
-    setCurrIdx(currIdx + 1)
   }
 
-  const slides = images.map((i, k) => <img style={style} className={classes.slide} src={i} key={k}/>)
+  const slides = images.map((i, k) => <Slide slideCount={images.length} src={i} key={k}/>)
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.slider} style={style}>
+    <div className={styleClasses.wrapper}>
+      <div className={sliderStyleClass}>
         {slides}
       </div>
-      <div className={classes.content}>
+      <div className={styleClasses.content}>
         <ImageSwitcher
           onCLickLeftHandler={onClickLeft}
           onClickRightHandler={onClickRight}
