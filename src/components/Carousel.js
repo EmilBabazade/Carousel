@@ -33,6 +33,7 @@ const Carousel = ({
   const [currIdx, setCurrIdx] = useState(0)
   const [isSwiping, setSwiping] = useState(false)
   const [movementX, setMovementX] = useState(0)
+  const [previousTouch, setPreviousTouch] = useState(undefined)
 
   const styleClasses = useStyles({
     imgCount: images.length, slideWidth: 100, index: currIdx
@@ -63,30 +64,42 @@ const Carousel = ({
     setCurrIdx(index)
   }
 
-  const mouseDown = (e) => setSwiping(false)
-  const mouseMove = (e) => {
+  const down = () => setSwiping(false)
+  const move = (e) => {
     setMovementX(e.movementX)
     setSwiping(true)
   }
-  const mouseUp = (e) => {
+  const up = () => {
     if (isSwiping) {
-      console.log(`mouse moved ${movementX}`)
       if (movementX < 0) {
         slideRight()
       } else if (movementX > 0) {
-        slideLeft(2)
+        slideLeft()
       }
       setSwiping(false)
-    } else { console.log('not dragging') }
+    }
+  }
+  const mobileMove = (e) => {
+    const touch = e.touches[0]
+
+    if (previousTouch) {
+      setMovementX(touch.pageX - previousTouch.pageY)
+    }
+
+    setPreviousTouch(touch)
+    setSwiping(true)
   }
 
   const slides = images.map((i, k) => <Slide src={i} key={k}/>)
 
   return (
     <div
-        onMouseDown={mouseDown}
-        onMouseUp={mouseUp}
-        onMouseMove={mouseMove}
+        onMouseDown={down}
+        onMouseUp={up}
+        onMouseMove={move}
+        onTouchStart={down}
+        onTouchMove={mobileMove}
+        onTouchEnd={up}
         className={styleClasses.wrapper}
       >
       <div className={styleClasses.slider}>

@@ -8,7 +8,8 @@
     "watch-css": "sass --watch src/styles/sass:src/styles/css",
     "start": "webpack-dev-server --mode development",
     "github:pages": "gh-pages -d dist",
-    "build": "npx webapck"
+    "github:pages:latest": "npm run build && npm run github:pages",
+    "build": "npx webpack"
   },
   "repository": {
     "type": "git",
