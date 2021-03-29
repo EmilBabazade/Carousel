@@ -79,11 +79,13 @@ const Carousel = ({
       setSwiping(false)
     }
   }
+
+  // onTouchMove doesn't have any movementX property
   const mobileMove = (e) => {
     const touch = e.touches[0]
 
     if (previousTouch) {
-      setMovementX(touch.pageX - previousTouch.pageY)
+      setMovementX(touch.pageX - previousTouch.pageX)
     }
 
     setPreviousTouch(touch)
