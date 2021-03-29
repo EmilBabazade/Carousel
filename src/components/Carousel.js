@@ -32,13 +32,13 @@ const Carousel = ({
 }) => {
   const [currIdx, setCurrIdx] = useState(0)
   const [isSwiping, setSwiping] = useState(false)
+  const [movementX, setMovementX] = useState(0)
 
   const styleClasses = useStyles({
     imgCount: images.length, slideWidth: 100, index: currIdx
   })
 
-  const onClickLeft = (evt) => {
-    evt.preventDefault()
+  const slideLeft = () => {
     if (currIdx === 0) {
       setCurrIdx(images.length - 1)
     } else {
@@ -46,8 +46,7 @@ const Carousel = ({
     }
   }
 
-  const onClickRight = (evt) => {
-    evt.preventDefault()
+  const slideRight = () => {
     if (currIdx === images.length - 1) {
       setCurrIdx(0)
     } else {
@@ -65,10 +64,18 @@ const Carousel = ({
   }
 
   const mouseDown = (e) => setSwiping(false)
-  const mouseMove = (e) => setSwiping(true)
+  const mouseMove = (e) => {
+    setMovementX(e.movementX)
+    setSwiping(true)
+  }
   const mouseUp = (e) => {
     if (isSwiping) {
-      console.log('dragging')
+      console.log(`mouse moved ${movementX}`)
+      if (movementX < 0) {
+        slideRight()
+      } else if (movementX > 0) {
+        slideLeft(2)
+      }
       setSwiping(false)
     } else { console.log('not dragging') }
   }
@@ -86,14 +93,14 @@ const Carousel = ({
         {slides}
       </div>
       <div className={styleClasses.content}>
-        {/* <ImageSwitcher
-          onCLickLeftHandler={onClickLeft}
-          onClickRightHandler={onClickRight}
-        /> */}
-        {/* <ImageIndices
+        <ImageSwitcher
+          onCLickLeftHandler={slideLeft}
+          onClickRightHandler={slideRight}
+        />
+        <ImageIndices
           index={currIdx}
           jumptToImage={jumptToImage}
-        /> */}
+        />
       </div>
     </div>
   )

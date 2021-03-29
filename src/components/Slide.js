@@ -14,7 +14,7 @@ const Slide = ({ src }) => {
   const classes = useStyles()
 
   return (
-        <img className={classes.slide} src={src} />
+        <img mous className={classes.slide} src={src} />
   )
 }
 
