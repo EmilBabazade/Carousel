@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ImageSwitcher from './ImageSwitcher'
-import ImageIndices from './ImageIndices'
+import SlideSwitcher from './SwitchSLidesByButtons'
+import SlideIndices from './SwitchSlidesByIndices'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
 
@@ -21,14 +21,14 @@ const useStyles = createUseStyles({
   slider: {
     position: 'absolute',
     height: '100%',
-    width: props => `${props.imgCount * props.slideWidth}vw`,
+    width: props => `${props.slideCount * props.slideWidth}vw`,
     transitionDuration: '0.5s',
     transform: props => `translate(-${props.index * props.slideWidth}vw)`
   }
 })
 
 const Carousel = ({
-  images
+  slides
 }) => {
   const [currIdx, setCurrIdx] = useState(0)
   const [isSwiping, setSwiping] = useState(false)
@@ -36,19 +36,19 @@ const Carousel = ({
   const [previousTouch, setPreviousTouch] = useState(undefined)
 
   const styleClasses = useStyles({
-    imgCount: images.length, slideWidth: 100, index: currIdx
+    slideCount: slides.length, slideWidth: 100, index: currIdx
   })
 
   const slideLeft = () => {
     if (currIdx === 0) {
-      setCurrIdx(images.length - 1)
+      setCurrIdx(slides.length - 1)
     } else {
       setCurrIdx(currIdx - 1)
     }
   }
 
   const slideRight = () => {
-    if (currIdx === images.length - 1) {
+    if (currIdx === slides.length - 1) {
       setCurrIdx(0)
     } else {
       setCurrIdx(currIdx + 1)
@@ -56,7 +56,7 @@ const Carousel = ({
   }
 
   const jumptToImage = (index) => {
-    if (index < 0 || index > images.length) {
+    if (index < 0 || index > slides.length) {
       // most likely will never happen, but you just in case
       console.log(`invalid index to jump ${index}`)
       return
@@ -92,8 +92,6 @@ const Carousel = ({
     setSwiping(true)
   }
 
-  const slides = images.map((i, k) => <Slide src={i} key={k}/>)
-
   return (
     <div
         onMouseDown={down}
@@ -105,14 +103,14 @@ const Carousel = ({
         className={styleClasses.wrapper}
       >
       <div className={styleClasses.slider}>
-        {slides}
+        {slides.map((i, k) => <Slide src={i} key={k}/>)}
       </div>
       <div className={styleClasses.content}>
-        <ImageSwitcher
+        <SlideSwitcher
           onCLickLeftHandler={slideLeft}
           onClickRightHandler={slideRight}
         />
-        <ImageIndices
+        <SlideIndices
           index={currIdx}
           jumptToImage={jumptToImage}
         />

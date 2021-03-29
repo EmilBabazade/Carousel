@@ -5,7 +5,7 @@ import images from './utils/images'
 const App = () => {
   return (
         <>
-              <Carousel images={images} />
+              <Carousel slides={images} />
         </>
   )
 }
