@@ -6,7 +6,8 @@ const useStyles = createUseStyles({
     position: 'inline',
     width: '100vw',
     height: '100%',
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    objectFit: 'cover'
   }
 })
 
