@@ -3,19 +3,28 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   slide: {
-    position: 'inline',
     width: '100vw',
-    height: '100%',
-    pointerEvents: 'none',
-    objectFit: 'cover'
+    height: '100vh',
+    display: 'inline',
+    '& > *': {
+      width: '100vw',
+      height: '100vh',
+      objectFit: 'cover',
+      textAlign: 'center',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
   }
 })
 
-const Slide = ({ src }) => {
+const Slide = ({ element }) => {
   const classes = useStyles()
 
   return (
-        <img mous className={classes.slide} src={src} />
+    <div className={classes.slide}>
+      {element}
+    </div>
   )
 }
 

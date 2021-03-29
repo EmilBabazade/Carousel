@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import SlideSwitcher from './SwitchSLidesByButtons'
+import SlideSwitcher from './SwitchSlidesByButtons'
 import SlideIndices from './SwitchSlidesByIndices'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
 
 const useStyles = createUseStyles({
   content: {
-    position: 'absolute',
+    // position: 'absolute',
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -16,7 +16,8 @@ const useStyles = createUseStyles({
     position: 'relative',
     width: '100%',
     height: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    backgroundColor: 'bisque'
   },
   slider: {
     position: 'absolute',
@@ -103,7 +104,7 @@ const Carousel = ({
         className={styleClasses.wrapper}
       >
       <div className={styleClasses.slider}>
-        {slides.map((i, k) => <Slide src={i} key={k}/>)}
+        {slides.map((i, k) => <Slide element={i} key={k}/>)}
       </div>
       <div className={styleClasses.content}>
         <SlideSwitcher
@@ -112,7 +113,8 @@ const Carousel = ({
         />
         <SlideIndices
           index={currIdx}
-          jumptToImage={jumptToImage}
+          jumptToSlide={jumptToImage}
+          slideCount={slides.length}
         />
       </div>
     </div>

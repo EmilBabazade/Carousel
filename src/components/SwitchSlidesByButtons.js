@@ -15,6 +15,9 @@ const ImageSwitcher = ({
       '& img': {
         width: '20%'
       },
+      '& img:focus': {
+        outline: 'none'
+      },
       '& button': {
         backgroundColor: 'transparent',
         border: '0px',

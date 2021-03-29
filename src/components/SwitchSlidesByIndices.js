@@ -1,9 +1,8 @@
 import React from 'react'
-import images from '../utils/images'
 import { createUseStyles } from 'react-jss'
 import colors from '../utils/colors'
 
-const ImageIndices = ({ jumptToImage, index }) => {
+const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
   const useStyles = createUseStyles({
     indices: {
       flex: '1',
@@ -29,24 +28,25 @@ const ImageIndices = ({ jumptToImage, index }) => {
   const classes = useStyles()
 
   const white = {
-    color: colors.white
+    color: colors.black
   }
 
-  const indices = images.map((_, idx) => {
+  const indices = []
+  for (let idx = 0; idx < slideCount; idx++) {
     if (idx === index) {
-      return (
-              <li style={white} key={idx} onClick={evt => jumptToImage(idx)}>
-                {idx}
+      indices.push(
+              <li style={white} key={idx} onClick={evt => jumptToSlide(idx)}>
+                {idx + 1}
               </li>
       )
     } else {
-      return (
-                <li key={idx} onClick={evt => jumptToImage(idx)}>
-                {idx}
+      indices.push(
+                <li key={idx} onClick={evt => jumptToSlide(idx)}>
+                {idx + 1}
               </li>
       )
     }
-  })
+  }
 
   return (
       <ul className={classes.indices}>
