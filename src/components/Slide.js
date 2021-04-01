@@ -5,7 +5,9 @@ const useStyles = createUseStyles({
   slide: {
     width: '100vw',
     height: '100vh',
-    display: 'inline',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     '& > *': {
       width: '100vw',
       height: '100vh',
@@ -13,7 +15,8 @@ const useStyles = createUseStyles({
       textAlign: 'center',
       display: 'inline-flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      margin: 0
     }
   }
 })

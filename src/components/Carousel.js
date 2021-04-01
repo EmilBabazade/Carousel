@@ -6,14 +6,14 @@ import Slide from './Slide'
 
 const useStyles = createUseStyles({
   content: {
-    // position: 'absolute',
+    position: 'absolute',
     width: '100%',
     height: '100%',
     display: 'flex',
     flexFlow: 'column'
   },
   wrapper: {
-    position: 'relative',
+    position: 'absolute',
     width: '100%',
     height: '100%',
     overflow: 'hidden',

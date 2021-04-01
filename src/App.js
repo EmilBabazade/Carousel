@@ -25,8 +25,8 @@ const App = () => {
   return (
         <>
               {/* <Carousel slides={slides} /> */}
-              <Carousel slides={headers} />,
-              {/* <Carousel slides={mix} /> */}
+              {/* <Carousel slides={headers} />, */}
+              <Carousel slides={mix} />
         </>
   )
 }

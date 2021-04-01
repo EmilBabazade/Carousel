@@ -9,6 +9,7 @@ const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
       display: 'flex',
       flexFlow: 'row',
       justifyContent: 'space-evenly',
+      margin: 0,
       '& li': {
         fontFamily: 'Syne Mono', // fonts are imported in index.html
         color: colors.gray,
