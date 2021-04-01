@@ -2,6 +2,7 @@
 import React from 'react'
 import Carousel from './components/Carousel'
 import images from './utils/images'
+import { useStyles } from 'react-jss'
 
 const App = () => {
 // Carousel works with any kind of content, but it is not responsible for styling any kind of content,
@@ -19,7 +20,23 @@ const App = () => {
   const mix = [
     ...images.map((i, k) => <img src={i} key={k}/>),
         <span key={8}>I am a span!</span>,
-        <a key={9} href="#">Open google</a>
+        <a key={9} href="#">Open google</a>,
+        <div key={10}>
+              <h1>
+                  Bee Movie
+              </h1>
+              <p>
+              Bee Movie is a 2007 American computer-animated comedy film
+               produced by DreamWorks Animation and distributed by Paramount
+                Pictures. Directed by Simon J. Smith and Steve Hickner,
+                 the film stars the voices of Jerry Seinfeld, Renée Zellweger,
+                  Matthew Broderick, John Goodman, Patrick Warburton, and Chris Rock
+                   in supporting roles. The story follows Barry B. Benson,
+                    a honey bee who sues the human race for exploiting bees,
+                     after learning from his florist friend Vanessa Bloome that
+                      humans sell and consume honey.
+              </p>
+        </div>
   ]
 
   return (

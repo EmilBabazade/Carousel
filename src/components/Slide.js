@@ -12,12 +12,7 @@ const useStyles = createUseStyles({
       width: '100vw',
       height: '100vh',
       objectFit: 'cover',
-      textAlign: 'center',
-      display: 'inline-flex',
-      position: 'absolute',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 0
+      position: 'absolute'
     }
   }
 })
