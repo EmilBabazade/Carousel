@@ -27,6 +27,9 @@ const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
       '& li:focus': {
         textDecoration: 'none',
         backgroundColor: 'none'
+      },
+      '& li::selection': {
+        background: 'transparent'
       }
     }
   })
