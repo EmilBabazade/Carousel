@@ -3,10 +3,7 @@ import leftArrow from '../left-arrow.png'
 import rightArrow from '../next.png'
 import { createUseStyles } from 'react-jss'
 
-// I was using this at first to navigate between slides
-// but then i implemented dragging with mouse and just moving to slide by clicking index of the slide
-// so this is pointless
-// But in case you are wondering, its just adds left and right arrows to scren that you can click on and navigate between slides
+// just a left and right button
 
 const ImageSwitcher = ({
   onCLickLeftHandler, onClickRightHandler

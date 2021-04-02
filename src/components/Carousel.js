@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import SlideIndices from './SwitchSlidesByIndices'
+import SlideButtons from './SwitchSlidesByButtons'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
 
@@ -12,7 +13,7 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexFlow: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'end'
+    alignItems: 'flex-end'
   },
   wrapper: {
     position: 'absolute',

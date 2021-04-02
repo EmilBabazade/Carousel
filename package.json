@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-css": "sass --watch src/styles/sass:src/styles/css",
     "start": "webpack-dev-server --mode development --config webpack.config.js",
-    "github:pages": "gh-pages -d dist",
-    "github:pages:latest": "npm run build && npm run github:pages",
+    "deploy": "gh-pages -d dist",
     "build": "npx webpack --config webpack.prod.js"
   },
   "repository": {

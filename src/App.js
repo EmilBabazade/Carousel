@@ -27,6 +27,16 @@ const useStyles = createUseStyles({
       flex: '1',
       padding: '0 20%'
     }
+  },
+  '@media screen and maxWidth(400px)': {
+    beeMovie: {
+      '& h1': {
+        fontSize: '16px'
+      },
+      '& p': {
+        fontSize: '10px'
+      }
+    }
   }
 })
 
@@ -48,12 +58,7 @@ const App = () => {
               Bee Movie is a 2007 American computer-animated comedy film
                produced by DreamWorks Animation and distributed by Paramount
                 Pictures. Directed by Simon J. Smith and Steve Hickner,
-                 the film stars the voices of Jerry Seinfeld, Renée Zellweger,
-                  Matthew Broderick, John Goodman, Patrick Warburton, and Chris Rock
-                   in supporting roles. The story follows Barry B. Benson,
-                    a honey bee who sues the human race for exploiting bees,
-                     after learning from his florist friend Vanessa Bloome that
-                      humans sell and consume honey.
+                 the film stars the voices of Jerry Seinfeld.
               </p>
         </div>,
       <h1 key={11} className={styles.center}>I am walking here</h1>,
