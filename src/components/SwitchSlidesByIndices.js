@@ -28,7 +28,7 @@ const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
         textDecoration: 'none',
         backgroundColor: 'none'
       },
-      '& li::selection': {
+      '& li::selection': { // when mouse drags over it doesn't do that blue copy text background thing
         background: 'transparent'
       }
     }
@@ -39,6 +39,7 @@ const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
     color: colors.black
   }
 
+  // make the currect slide index white
   const indices = []
   for (let idx = 0; idx < slideCount; idx++) {
     if (idx === index) {

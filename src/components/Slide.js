@@ -1,6 +1,8 @@
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 
+// make sure everything is centered and full width
+// and style images by default
 const useStyles = createUseStyles({
   slide: {
     width: '100vw',

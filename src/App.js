@@ -3,6 +3,8 @@ import React from 'react'
 import Carousel from './components/Carousel'
 import images from './utils/images'
 import { createUseStyles } from 'react-jss'
+// TODO:put these in the Carousel component.
+import './utils/css_defaults.css'
 
 // Carousel should work with any kind of content, but it is not responsible for styling any kind of content,
 // (other than centering the content)
@@ -31,7 +33,10 @@ const useStyles = createUseStyles({
 const App = () => {
   const styles = useStyles()
 
+  //   bunch of cool images
   const slides = images.map((i, k) => <img src={i} key={k}/>)
+
+  //   and some spans and stuff
   const mix = [
     ...slides,
             <span key={8} className={styles.center}>I am a span!</span>,
