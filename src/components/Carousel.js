@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import SlideIndices from './SwitchSlidesByIndices'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
@@ -32,6 +33,13 @@ const useStyles = createUseStyles({
 const Carousel = ({
   slides
 }) => {
+// check to make sure slides is an array of valid react elements
+  const isValid = slides.some(s => !React.isValidElement(s))
+  if (isValid) {
+    console.error('invalid input to Carousel, you can only pass array of react elements')
+    return
+  }
+
   const [currIdx, setCurrIdx] = useState(0)
   const [isSwiping, setSwiping] = useState(false)
   const [movementX, setMovementX] = useState(0)
@@ -116,6 +124,10 @@ const Carousel = ({
       </div>
     </div>
   )
+}
+
+Carousel.propTypes = {
+  slides: PropTypes.array
 }
 
 export default Carousel
