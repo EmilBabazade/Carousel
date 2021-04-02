@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import SlideSwitcher from './SwitchSlidesByButtons'
 import SlideIndices from './SwitchSlidesByIndices'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'

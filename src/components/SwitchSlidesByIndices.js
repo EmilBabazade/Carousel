@@ -23,6 +23,10 @@ const ImageIndices = ({ jumptToSlide, index, slideCount }) => {
         cursor: 'pointer',
         bottom: '20%',
         color: colors.purple
+      },
+      '& li:focus': {
+        textDecoration: 'none',
+        backgroundColor: 'none'
       }
     }
   })

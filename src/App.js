@@ -13,9 +13,16 @@ const useStyles = createUseStyles({
   },
   beeMovie: {
     display: 'flex',
-    flexFlow: 'row-wrap',
+    flexFlow: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    '& h1': {
+      flex: '1'
+    },
+    '& p': {
+      flex: '1',
+      padding: '0 20%'
+    }
   }
 })
 
@@ -34,8 +41,8 @@ const App = () => {
         <h6 key={6}>I am walking here</h6>
   ]
   const mix = [
-    //     ...images.map((i, k) => <img src={i} key={k}/>),
-    //         <span key={8} className={styles.center}>I am a span!</span>,
+    ...images.map((i, k) => <img src={i} key={k}/>),
+            <span key={8} className={styles.center}>I am a span!</span>,
         <div key={10} className={styles.beeMovie}>
               <h1>
                   Bee Movie
