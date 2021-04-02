@@ -2,11 +2,27 @@
 import React from 'react'
 import Carousel from './components/Carousel'
 import images from './utils/images'
-import { useStyles } from 'react-jss'
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles({
+  center: {
+    display: 'flex',
+    flexFlow: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  beeMovie: {
+    display: 'flex',
+    flexFlow: 'row-wrap',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 const App = () => {
 // Carousel works with any kind of content, but it is not responsible for styling any kind of content,
 // (other than centering the content)
+  const styles = useStyles()
 
   const slides = images.map((i, k) => <img src={i} key={k}/>)
   const headers = [
@@ -18,10 +34,9 @@ const App = () => {
         <h6 key={6}>I am walking here</h6>
   ]
   const mix = [
-    ...images.map((i, k) => <img src={i} key={k}/>),
-        <span key={8}>I am a span!</span>,
-        <a key={9} href="#">Open google</a>,
-        <div key={10}>
+    //     ...images.map((i, k) => <img src={i} key={k}/>),
+    //         <span key={8} className={styles.center}>I am a span!</span>,
+        <div key={10} className={styles.beeMovie}>
               <h1>
                   Bee Movie
               </h1>
@@ -36,7 +51,9 @@ const App = () => {
                      after learning from his florist friend Vanessa Bloome that
                       humans sell and consume honey.
               </p>
-        </div>
+        </div>,
+      <h1 key={11} className={styles.center}>I am walking here</h1>,
+      <h2 key={12} className={styles.center}>I am walking here</h2>
   ]
 
   return (

@@ -10,7 +10,9 @@ const useStyles = createUseStyles({
     width: '100%',
     height: '100%',
     display: 'flex',
-    flexFlow: 'column'
+    flexFlow: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'end'
   },
   wrapper: {
     position: 'absolute',
@@ -107,10 +109,6 @@ const Carousel = ({
         {slides.map((i, k) => <Slide element={i} key={k}/>)}
       </div>
       <div className={styleClasses.content}>
-        <SlideSwitcher
-          onCLickLeftHandler={slideLeft}
-          onClickRightHandler={slideRight}
-        />
         <SlideIndices
           index={currIdx}
           jumptToSlide={jumptToImage}
