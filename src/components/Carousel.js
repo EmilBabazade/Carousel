@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import SlideIndices from './SwitchSlidesByIndices'
-import SlideButtons from './SwitchSlidesByButtons'
 import { createUseStyles } from 'react-jss'
 import Slide from './Slide'
 
